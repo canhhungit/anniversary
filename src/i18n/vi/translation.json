@@ -1,3 +1,69 @@
 {
-  "welcome": "Chào mừng"
+  "Navigation": {
+    "features": "Tính năng",
+    "tooling": "Công cụ",
+    "demo": "Demo"
+  },
+  "Home": {
+    "hero": {
+      "eyebrow": "Boilerplate chuẩn production",
+      "title": "Khởi tạo dự án Next.js trong vài phút",
+      "description": "Một nền tảng hiện đại giúp bạn bắt đầu nhanh chóng với Next.js, tối ưu cho hiệu năng, SEO và trải nghiệm phát triển.",
+      "primaryCta": "Xem tài liệu",
+      "secondaryCta": "Triển khai với Vercel"
+    },
+    "features": {
+      "title": "Các tính năng nổi bật",
+      "description": "Tập trung vào những thành phần cốt lõi để bạn có thể mở rộng sản phẩm ngay lập tức.",
+      "items": {
+        "modernStack": {
+          "title": "Stack hiện đại",
+          "description": "Next.js App Router 15, TypeScript, Tailwind CSS và kiến trúc module hoá."
+        },
+        "performance": {
+          "title": "Hiệu năng & SEO",
+          "description": "Metadata đầy đủ, JSON-LD schema, robots/sitemap và best-practice cho production."
+        },
+        "localization": {
+          "title": "Đa ngôn ngữ",
+          "description": "Tích hợp next-intl với ví dụ cấu trúc thư mục rõ ràng cho bản dịch."
+        },
+        "devExperience": {
+          "title": "Developer Experience",
+          "description": "ESLint, Prettier, Husky, Plop generator và util chung giúp chuẩn hoá quy trình."
+        }
+      }
+    },
+    "tooling": {
+      "title": "Công cụ sẵn sàng cho production",
+      "description": "Các thư viện và cấu hình đi kèm đảm bảo ứng dụng vận hành ổn định trên mọi môi trường.",
+      "items": {
+        "appRouter": "Next.js App Router với layout, loading, error boundary và route handlers.",
+        "typescript": "TypeScript cấu hình strict cùng alias để quản lý module lớn.",
+        "tailwind": "Tailwind CSS mở rộng theme, dark mode và utility class tiện dụng.",
+        "intl": "next-intl để quản lý locale, message và formatting dễ dàng.",
+        "pwa": "Serwist PWA, service worker tùy chỉnh và prompt cài đặt trên trình duyệt."
+      }
+    },
+    "todo": {
+      "heading": "Demo tích hợp API",
+      "description": "Ví dụ gọi API serverless bằng fetcher có xử lý lỗi và logging.",
+      "loading": "Đang tải dữ liệu demo...",
+      "error": "Không thể tải dữ liệu demo. Vui lòng thử lại sau.",
+      "completed": "Hoàn thành",
+      "inProgress": "Đang thực hiện"
+    },
+    "personalInfo": {
+      "title": "Hồ sơ developer mẫu",
+      "description": "Server Component async mô phỏng việc truy vấn thông tin người dùng.",
+      "fields": {
+        "name": "Họ tên",
+        "role": "Vị trí",
+        "country": "Quốc gia",
+        "experience": "Kinh nghiệm"
+      },
+      "years": "năm kinh nghiệm",
+      "loading": "Đang chuẩn bị dữ liệu"
+    }
+  }
 }

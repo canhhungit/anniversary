@@ -1,0 +1,79 @@
+{
+  "Navigation": {
+    "features": "Features",
+    "tooling": "Tooling",
+    "demo": "Demo"
+  },
+  "Home": {
+    "hero": {
+      "eyebrow": "Next.js 15 Boilerplate",
+      "title": "Build Faster, Ship Smarter",
+      "description": "A production-ready foundation for building scalable Next.js applications with TypeScript, Tailwind CSS, SEO and PWA tooling.",
+      "primaryCta": "View Documentation",
+      "secondaryCta": "Deploy Now"
+    },
+    "features": {
+      "title": "Built for Modern Development",
+      "description": "Everything you need to build production-ready applications",
+      "items": {
+        "modernStack": {
+          "title": "Modern Stack",
+          "description": "Next.js 15, React 19, TypeScript 5 - the latest and greatest technologies"
+        },
+        "performance": {
+          "title": "Optimized Performance",
+          "description": "Built-in optimizations for Core Web Vitals and SEO best practices"
+        },
+        "localization": {
+          "title": "Internationalization",
+          "description": "Full i18n support with next-intl for multi-language applications"
+        },
+        "devExperience": {
+          "title": "Great DX",
+          "description": "ESLint, Prettier, TypeScript strict mode for a smooth development experience"
+        }
+      }
+    },
+    "tooling": {
+      "title": "Modern Tooling Stack",
+      "description": "Pre-configured with the best tools for modern web development",
+      "items": {
+        "appRouter": "Next.js App Router with Server Components",
+        "typescript": "TypeScript with strict mode enabled",
+        "tailwind": "Tailwind CSS for rapid UI development",
+        "intl": "next-intl for internationalization",
+        "pwa": "PWA support with Serwist"
+      }
+    },
+    "todo": {
+      "heading": "API Integration Demo",
+      "description": "Live data fetching example with error handling",
+      "loading": "Loading data...",
+      "error": "Failed to load data",
+      "completed": "Completed",
+      "inProgress": "In Progress"
+    },
+    "personalInfo": {
+      "loading": "Loading profile..."
+    }
+  },
+  "Notification": {
+    "title": "Enable Notifications",
+    "description": "Stay updated with the latest news and updates",
+    "enable": "Enable",
+    "later": "Maybe Later",
+    "explanation": {
+      "title": "Why enable notifications?",
+      "content": "Get instant updates about important events, new features, and announcements directly on your device.",
+      "understood": "Got it"
+    }
+  },
+  "PWA": {
+    "installPrompt": {
+      "title": "Install App",
+      "description": "Install this app for a better experience",
+      "install": "Install",
+      "dismiss": "Not now"
+    }
+  }
+}

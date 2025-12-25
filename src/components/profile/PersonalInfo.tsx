@@ -1,32 +1,36 @@
-import React from 'react';
-interface PersonalInfoData {
-  name: string;
-  age: number;
-  profession: string;
-}
-// Hàm giả lập lấy dữ liệu với setTimeout
-const fetchPersonalInfo = (): Promise<PersonalInfoData> => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve({
-        name: 'Nguyễn Văn A',
-        age: 30,
-        profession: 'Kỹ sư phần mềm',
-      });
-    }, 2000); // 2 giây
-  });
-};
+import { getTranslations } from 'next-intl/server';
+import { getPersonalInfo } from '@/services/profileService';
 
-// Server Component
 export default async function PersonalInfo() {
-  const data = await fetchPersonalInfo();
+  const [t, data] = await Promise.all([
+    getTranslations('Home.personalInfo'),
+    getPersonalInfo(),
+  ]);
 
   return (
-    <div>
-      <h2>Thông Tin Cá Nhân</h2>
-      <p>Tên: {data.name}</p>
-      <p>Tuổi: {data.age}</p>
-      <p>Nghề nghiệp: {data.profession}</p>
-    </div>
+    <section className="rounded-3xl border border-white/10 bg-slate-950/80 px-6 py-6">
+      <h3 className="text-lg font-semibold text-white">{t('title')}</h3>
+      <p className="mt-2 text-sm text-slate-300">{t('description')}</p>
+      <dl className="mt-6 space-y-3 text-sm text-slate-200">
+        <div className="flex items-center justify-between">
+          <dt className="text-slate-400">{t('fields.name')}</dt>
+          <dd className="font-medium text-white">{data.name}</dd>
+        </div>
+        <div className="flex items-center justify-between">
+          <dt className="text-slate-400">{t('fields.role')}</dt>
+          <dd className="font-medium text-white">{data.role}</dd>
+        </div>
+        <div className="flex items-center justify-between">
+          <dt className="text-slate-400">{t('fields.country')}</dt>
+          <dd className="font-medium text-white">{data.country}</dd>
+        </div>
+        <div className="flex items-center justify-between">
+          <dt className="text-slate-400">{t('fields.experience')}</dt>
+          <dd className="font-medium text-white">
+            {data.yearsOfExperience} {t('years')}
+          </dd>
+        </div>
+      </dl>
+    </section>
   );
 }

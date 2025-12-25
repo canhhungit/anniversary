@@ -1,22 +1,56 @@
 {
-  "name": "My Awesome PWA app",
-  "short_name": "PWA App",
+  "name": "Next.js Boilerplate",
+  "short_name": "NextJS App",
+  "description": "Production-ready foundation for building scalable Next.js applications with TypeScript, Tailwind CSS, SEO and PWA tooling.",
   "icons": [
     {
-      "src": "/vercel.svg",
+      "src": "/icons/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "/vercel.svg",
+      "src": "/icons/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
   ],
-  "theme_color": "#FFFFFF",
-  "background_color": "#FFFFFF",
+  "theme_color": "#0f172a",
+  "background_color": "#020617",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "orientation": "portrait"
+  "orientation": "portrait",
+  "categories": ["productivity", "utilities"],
+  "prefer_related_applications": false
 }

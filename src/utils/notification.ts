@@ -1,4 +1,4 @@
-import { logger } from '../lib';
+import { getEnv, logger } from '../lib';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 const SERVICE_WORKER_FILE_PATH = '/sw.js';
@@ -37,7 +37,7 @@ async function subscribe(
     .then((registration: ServiceWorkerRegistration) => {
       return registration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY,
+        applicationServerKey: getEnv('NEXT_PUBLIC_VAPID_PUBLIC_KEY'),
       });
     })
     .then((subscription: PushSubscription) => {

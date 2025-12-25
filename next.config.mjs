@@ -1,12 +1,20 @@
 import createNextIntlPlugin from 'next-intl/plugin';
-import withSerwistInit from "@serwist/next";
+import withSerwistInit from '@serwist/next';
 
-const withNextIntl = createNextIntlPlugin();
+// Use the root i18n.ts file
+const withNextIntl = createNextIntlPlugin('./i18n.ts');
+
 const securityHeaders = [
   {
     key: 'Content-Security-Policy',
-    value:
-      "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com; style-src 'self' 'unsafe-inline'; img-src * blob: data:; font-src 'self' data:;",
+    value: [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://apis.google.com",
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      "font-src 'self' https://fonts.gstatic.com data:",
+      'img-src * blob: data:',
+      "connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com",
+    ].join('; '),
   },
   {
     key: 'Strict-Transport-Security',
@@ -21,6 +29,10 @@ const securityHeaders = [
     value: 'DENY',
   },
   {
+    key: 'X-XSS-Protection',
+    value: '1; mode=block',
+  },
+  {
     key: 'Referrer-Policy',
     value: 'strict-origin-when-cross-origin',
   },
@@ -29,6 +41,7 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()',
   },
 ];
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async headers() {
@@ -47,40 +60,38 @@ const nextConfig = {
       },
     ];
   },
-  productionBrowserSourceMaps: true,
+  // Disable source maps in production for smaller bundle
+  productionBrowserSourceMaps: false,
   basePath: '',
   output: 'standalone',
-  swcMinify: true,
   assetPrefix: '',
-  publicRuntimeConfig: {
-    SERVICE_PATH: '',
-  },
   reactStrictMode: true,
+  // Remove console logs in production
   compiler: {
-    removeConsole: false,
+    removeConsole: process.env.NODE_ENV === 'production',
   },
   images: {
-    path: '/_next/image',
-    loader: 'default',
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '*',
-        port: '',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.githubusercontent.com',
       },
     ],
   },
+  compress: true,
 };
 
-// Cấu hình PWA
+// PWA Configuration
 const withSerwist = withSerwistInit({
-  // Note: This is only an example. If you use Pages Router,
-  // use something else that works, such as "service-worker/index.ts".
-  swSrc: "src/app/sw.ts",
-  swDest: "public/sw.js",
-  disable: false
+  swSrc: 'src/app/sw.ts',
+  swDest: 'public/sw.js',
+  disable: process.env.NODE_ENV === 'development',
 });
 
-
-// Kết hợp next-pwa và next-intl
+// Combine plugins
 export default withNextIntl(withSerwist(nextConfig));

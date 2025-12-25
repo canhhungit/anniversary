@@ -2,23 +2,26 @@ import React from 'react';
 import Script from 'next/script';
 
 interface BreadcrumbItem {
-  '@type': 'ListItem';
-  position: number;
   name: string;
-  item: string;
+  url: string;
 }
 
 interface BreadcrumbListSchemaProps {
-  itemListElement: BreadcrumbItem[];
+  items: BreadcrumbItem[];
 }
 
 const BreadcrumbListSchema: React.FC<BreadcrumbListSchemaProps> = ({
-  itemListElement,
+  items,
 }) => {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.url,
+    })),
   };
 
   return (
